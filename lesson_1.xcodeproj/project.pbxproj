@@ -14,6 +14,9 @@
 		8E0E04512B98E5E4001434D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0E04502B98E5E4001434D2 /* Assets.xcassets */; };
 		8E0E04542B98E5E4001434D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0E04522B98E5E4001434D2 /* LaunchScreen.storyboard */; };
 		8E0E045C2B98F74F001434D2 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0E045B2B98F74E001434D2 /* LoginInfo.swift */; };
+		8EC775DB2BAD7F32000DA815 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775DA2BAD7F32000DA815 /* MainTabBarController.swift */; };
+		8EC775DD2BAD80D4000DA815 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775DC2BAD80D4000DA815 /* FriendsViewController.swift */; };
+		8EC775DF2BAD80E4000DA815 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775DE2BAD80E4000DA815 /* GroupsViewController.swift */; };
 		8EE1EF3C2BA316AD00D74A08 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1EF3B2BA316AD00D74A08 /* UIColorExtensions.swift */; };
 		8EE1EF3E2BA3171B00D74A08 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1EF3D2BA3171B00D74A08 /* CGFloatExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +31,9 @@
 		8E0E04532B98E5E4001434D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E0E04552B98E5E4001434D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0E045B2B98F74E001434D2 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
+		8EC775DA2BAD7F32000DA815 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		8EC775DC2BAD80D4000DA815 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		8EC775DE2BAD80E4000DA815 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		8EE1EF3B2BA316AD00D74A08 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		8EE1EF3D2BA3171B00D74A08 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				8E0E044B2B98E5E2001434D2 /* LoginViewController.swift */,
+				8EC775DA2BAD7F32000DA815 /* MainTabBarController.swift */,
+				8EC775DC2BAD80D4000DA815 /* FriendsViewController.swift */,
+				8EC775DE2BAD80E4000DA815 /* GroupsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,12 +196,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC775DD2BAD80D4000DA815 /* FriendsViewController.swift in Sources */,
 				8E0E044C2B98E5E2001434D2 /* LoginViewController.swift in Sources */,
 				8E0E04482B98E5E2001434D2 /* AppDelegate.swift in Sources */,
 				8EE1EF3E2BA3171B00D74A08 /* CGFloatExtensions.swift in Sources */,
+				8EC775DB2BAD7F32000DA815 /* MainTabBarController.swift in Sources */,
 				8E0E044A2B98E5E2001434D2 /* SceneDelegate.swift in Sources */,
 				8E0E045C2B98F74F001434D2 /* LoginInfo.swift in Sources */,
 				8EE1EF3C2BA316AD00D74A08 /* UIColorExtensions.swift in Sources */,
+				8EC775DF2BAD80E4000DA815 /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

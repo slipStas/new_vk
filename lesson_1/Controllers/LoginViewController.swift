@@ -147,6 +147,9 @@ class LoginViewController: UIViewController {
         
         if loginInfo.check(login: login, and: password) {
             self.startVCLabel.text = "Successfull login!!!"
+            let tabBarVC = MainTabBarController()
+            tabBarVC.modalPresentationStyle = .fullScreen
+            self.present(tabBarVC, animated: true, completion: nil)
         } else {
             self.startVCLabel.text = "Incorrect login or password"
         }
