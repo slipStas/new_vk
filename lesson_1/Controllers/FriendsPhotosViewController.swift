@@ -8,7 +8,6 @@
 import UIKit
 
 class FriendsPhotosViewController: UIViewController {
-    //TODO: add view with photo and name
     private var friendNameLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 8, y: 150, width: 150, height: 15))
         
