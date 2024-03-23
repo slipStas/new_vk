@@ -146,12 +146,15 @@ class LoginViewController: UIViewController {
         guard let loginInfo = self.loginInfo else { return }
         
         if loginInfo.check(login: login, and: password) {
-            self.startVCLabel.text = "Successfull login!!!"
+            print("Login/password is correct")
             let tabBarVC = MainTabBarController()
             tabBarVC.modalPresentationStyle = .fullScreen
             self.present(tabBarVC, animated: true, completion: nil)
         } else {
-            self.startVCLabel.text = "Incorrect login or password"
+            let errorVC = LoginErrorController()
+            present(errorVC, animated: true)
+            self.loginTextField.text = ""
+            self.passwordTextField.text = ""
         }
     }
 }
