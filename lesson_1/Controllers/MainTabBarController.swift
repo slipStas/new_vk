@@ -16,13 +16,18 @@ class MainTabBarController: UITabBarController {
     }
 
     func setupViewControllers() {
+        let friendsNavVC = UINavigationController()
+        let groupsNavVC = UINavigationController()
+        
         let friendsVC = FriendsViewController()
         let groupsVC = GroupsViewController()
         
         friendsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
-        
         groupsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 0)
         
-        viewControllers = [friendsVC, groupsVC]
+        friendsNavVC.viewControllers.append(friendsVC)
+        groupsNavVC.viewControllers.append(groupsVC)
+        
+        viewControllers = [friendsNavVC, groupsNavVC]
     }
 }
