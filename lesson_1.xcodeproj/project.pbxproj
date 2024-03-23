@@ -18,6 +18,8 @@
 		8EC775DD2BAD80D4000DA815 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775DC2BAD80D4000DA815 /* FriendsViewController.swift */; };
 		8EC775DF2BAD80E4000DA815 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775DE2BAD80E4000DA815 /* GroupsViewController.swift */; };
 		8EC775E12BAEF0B4000DA815 /* LoginErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775E02BAEF0B4000DA815 /* LoginErrorController.swift */; };
+		8EC775E32BAEF773000DA815 /* FriendsPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775E22BAEF773000DA815 /* FriendsPhotosViewController.swift */; };
+		8EC775E62BAF1811000DA815 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775E52BAF1811000DA815 /* FriendsListTableViewCell.swift */; };
 		8EE1EF3C2BA316AD00D74A08 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1EF3B2BA316AD00D74A08 /* UIColorExtensions.swift */; };
 		8EE1EF3E2BA3171B00D74A08 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1EF3D2BA3171B00D74A08 /* CGFloatExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		8EC775DC2BAD80D4000DA815 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8EC775DE2BAD80E4000DA815 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		8EC775E02BAEF0B4000DA815 /* LoginErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorController.swift; sourceTree = "<group>"; };
+		8EC775E22BAEF773000DA815 /* FriendsPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotosViewController.swift; sourceTree = "<group>"; };
+		8EC775E52BAF1811000DA815 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		8EE1EF3B2BA316AD00D74A08 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		8EE1EF3D2BA3171B00D74A08 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +94,7 @@
 				8EC775DC2BAD80D4000DA815 /* FriendsViewController.swift */,
 				8EC775DE2BAD80E4000DA815 /* GroupsViewController.swift */,
 				8EC775E02BAEF0B4000DA815 /* LoginErrorController.swift */,
+				8EC775E22BAEF773000DA815 /* FriendsPhotosViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 		8E0E045E2B99D65E001434D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8EC775E42BAF17C3000DA815 /* TableViewCells */,
 				8E0E04602B99D6FD001434D2 /* Storyboards */,
 			);
 			path = Views;
@@ -117,6 +123,14 @@
 				8E0E044D2B98E5E2001434D2 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8EC775E42BAF17C3000DA815 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8EC775E52BAF1811000DA815 /* FriendsListTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		8EE1EF3A2BA3163E00D74A08 /* Extensions */ = {
@@ -201,6 +215,8 @@
 			files = (
 				8EC775DD2BAD80D4000DA815 /* FriendsViewController.swift in Sources */,
 				8E0E044C2B98E5E2001434D2 /* LoginViewController.swift in Sources */,
+				8EC775E32BAEF773000DA815 /* FriendsPhotosViewController.swift in Sources */,
+				8EC775E62BAF1811000DA815 /* FriendsListTableViewCell.swift in Sources */,
 				8E0E04482B98E5E2001434D2 /* AppDelegate.swift in Sources */,
 				8EE1EF3E2BA3171B00D74A08 /* CGFloatExtensions.swift in Sources */,
 				8EC775E12BAEF0B4000DA815 /* LoginErrorController.swift in Sources */,
