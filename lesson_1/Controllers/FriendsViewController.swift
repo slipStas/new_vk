@@ -9,21 +9,67 @@ import UIKit
 
 class FriendsViewController: UIViewController {
     
-    private let array = ["first", "second", "third", "fourth", "_first", "_second", "_third", "_fourth", "1_first", "1_second", "1_third", "1_fourth", "2_first", "2_second", "2_third", "2_fourth", "3_first", "3_second", "3_third", "3_fourth", "4_first", "4_second", "4_third", "4_fourth"]
-    
     private var friendsArray: [Friend] = []
     private let tableView = UITableView()
 
+    //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
+        fillFriendsArray()
     }
     
+    //MARK: methods
     private func fillFriendsArray() {
+        guard let person = UIImage(systemName: "person") else { return }
+        guard let personFill = UIImage(systemName: "person.fill") else { return }
+        guard let personCircle = UIImage(systemName: "person.circle") else { return }
+        guard let personCircleFill = UIImage(systemName: "person.circle.fill") else { return }
+        guard let personSlash = UIImage(systemName: "person.slash") else { return }
+        guard let personSlashFill = UIImage(systemName: "person.slash.fill") else { return }
+        guard let personFillTurnRight = UIImage(systemName: "person.fill.turn.right") else { return }
+        guard let personFillCheckmark = UIImage(systemName: "person.fill.checkmark") else { return }
+        guard let personFillXmark = UIImage(systemName: "person.fill.xmark") else { return }
+        guard let personFillQuestionmark = UIImage(systemName: "person.fill.questionmark") else { return }
+        guard let personBadgePlus = UIImage(systemName: "person.badge.plus") else { return }
         
+        friendsArray.append(Friend(name: "person",
+                                   avatar: Photo(image: person, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personFill",
+                                   avatar: Photo(image: personFill, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personCircle",
+                                   avatar: Photo(image: personCircle, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personCircleFill",
+                                   avatar: Photo(image: personCircleFill, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personSlash",
+                                   avatar: Photo(image: personSlash, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personSlashFill",
+                                   avatar: Photo(image: personSlashFill, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personFillTurnRight",
+                                   avatar: Photo(image: personFillTurnRight, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personFillCheckmark",
+                                   avatar: Photo(image: personFillCheckmark, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personFillXmark",
+                                   avatar: Photo(image: personFillXmark, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personFillQuestionmark",
+                                   avatar: Photo(image: personFillQuestionmark, likesCount: 0),
+                                   photosArray: []))
+        friendsArray.append(Friend(name: "personBadgePlus",
+                                   avatar: Photo(image: personBadgePlus, likesCount: 0),
+                                   photosArray: []))
     }
     
+    //MARK: private methods
     private func setupTableView() {
         tableView.frame = view.frame
         tableView.delegate = self
@@ -34,6 +80,7 @@ class FriendsViewController: UIViewController {
         
     }
     
+    //MARK: @objc methods
     @objc private func buttonPressed(sender: UIButton) {
         print("button pressed")
         let testVC = FriendsPhotosViewController()
@@ -42,27 +89,27 @@ class FriendsViewController: UIViewController {
 
 }
 
+//MARK: UITableViewDelegate
 extension FriendsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friendPhotosVC = FriendsPhotosViewController()
-        friendPhotosVC.setupFriend(name: array[indexPath.row])
+        friendPhotosVC.setupFriend(name: friendsArray[indexPath.row].getName())
         
         navigationController?.pushViewController(friendPhotosVC, animated: true)
     }
 }
 
+//MARK: UITableViewDataSource
 extension FriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.array.count
+        self.friendsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsListCellIdentifier", for: indexPath) as! FriendsListTableViewCell
-        cell.set(name: array[indexPath.row])
+        cell.set(name: friendsArray[indexPath.row].getName())
         cell.setViews()
         
         return cell
     }
-    
-    
 }

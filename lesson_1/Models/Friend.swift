@@ -20,6 +20,10 @@ struct Friend {
         
     }
     
+    func getName() -> String {
+        self.name
+    }
+    
     mutating func change(name: String) {
         self.name = name
     }
