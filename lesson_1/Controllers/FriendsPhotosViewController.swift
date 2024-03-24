@@ -17,7 +17,6 @@ class FriendsPhotosViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("test")
         view.backgroundColor = .brown
         setupViews()
     }

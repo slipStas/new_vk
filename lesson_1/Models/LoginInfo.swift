@@ -8,8 +8,8 @@
 import Foundation
 
 class LoginInfo {
-    private let login = "qwe"
-    private let password = "123"
+    private let login = ""
+    private let password = ""
     
     func check(login: String, and password: String) -> Bool {
         self.login == login && self.password == password
