@@ -9,13 +9,19 @@ import UIKit
 
 class FriendsViewController: UIViewController {
     
-    let array = ["first", "second", "third", "fourth", "_first", "_second", "_third", "_fourth", "1_first", "1_second", "1_third", "1_fourth", "2_first", "2_second", "2_third", "2_fourth", "3_first", "3_second", "3_third", "3_fourth", "4_first", "4_second", "4_third", "4_fourth"]
-    let tableView = UITableView()
+    private let array = ["first", "second", "third", "fourth", "_first", "_second", "_third", "_fourth", "1_first", "1_second", "1_third", "1_fourth", "2_first", "2_second", "2_third", "2_fourth", "3_first", "3_second", "3_third", "3_fourth", "4_first", "4_second", "4_third", "4_fourth"]
+    
+    private var friendsArray: [Friend] = []
+    private let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
+    }
+    
+    private func fillFriendsArray() {
+        
     }
     
     private func setupTableView() {
@@ -52,7 +58,7 @@ extension FriendsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsListCellIdentifier", for: indexPath) as! FriendsListTableViewCell
-        cell.friendNameLabel.text = array[indexPath.row]
+        cell.set(name: array[indexPath.row])
         cell.setViews()
         
         return cell

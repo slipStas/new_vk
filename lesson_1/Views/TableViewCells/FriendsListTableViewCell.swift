@@ -9,7 +9,7 @@ import UIKit
 
 class FriendsListTableViewCell: UITableViewCell {
     
-    lazy var friendNameLabel = UILabel()
+    private lazy var friendNameLabel = UILabel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,14 +30,15 @@ class FriendsListTableViewCell: UITableViewCell {
     func setViews() {
         self.addSubview(friendNameLabel)
         
-        
-        
         friendNameLabel.translatesAutoresizingMaskIntoConstraints = false
         friendNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         friendNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -50).isActive = true
         friendNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
         friendNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
-//        friendNameLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+    
+    func set(name: String) {
+        friendNameLabel.text = name
     }
 
 }
