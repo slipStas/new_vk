@@ -9,36 +9,40 @@ import UIKit
 
 class FriendsListTableViewCell: UITableViewCell {
     
-    private lazy var friendNameLabel = UILabel()
+//    private lazy var friendNameLabel = UILabel()
+    private lazy var friendView: FriendView = {
+        let imageView = UIImageView(image: UIImage(systemName: "person"))
+        let nameLabel = UILabel()
+        nameLabel.text = "no name"
+        let friendView = FriendView(photoView: imageView,
+                                    nameLabel: nameLabel)
+                                    
+        return friendView
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        self.addSubview(friendNameLabel)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        friendNameLabel.text = nil
+        friendView.setupForReuse()
     }
     
     func setViews() {
-        self.addSubview(friendNameLabel)
+        self.addSubview(friendView)
         
-        friendNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        friendNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        friendNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -50).isActive = true
-        friendNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        friendNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        friendView.translatesAutoresizingMaskIntoConstraints = false
+        friendView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        friendView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -50).isActive = true
+        friendView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        friendView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
     }
     
-    func set(name: String) {
-        friendNameLabel.text = name
+    func setFriend(_ friend: Friend) {
+        self.friendView.setup(friend: friend)
+        self.friendView.setupViews()
     }
 
 }

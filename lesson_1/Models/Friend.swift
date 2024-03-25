@@ -24,6 +24,10 @@ struct Friend {
         self.name
     }
     
+    func getAvatar() -> Photo {
+        self.avatar
+    }
+    
     mutating func change(name: String) {
         self.name = name
     }

@@ -20,53 +20,51 @@ class FriendsViewController: UIViewController {
         fillFriendsArray()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     //MARK: methods
     private func fillFriendsArray() {
-        guard let person = UIImage(systemName: "person") else { return }
-        guard let personFill = UIImage(systemName: "person.fill") else { return }
-        guard let personCircle = UIImage(systemName: "person.circle") else { return }
-        guard let personCircleFill = UIImage(systemName: "person.circle.fill") else { return }
-        guard let personSlash = UIImage(systemName: "person.slash") else { return }
-        guard let personSlashFill = UIImage(systemName: "person.slash.fill") else { return }
-        guard let personFillTurnRight = UIImage(systemName: "person.fill.turn.right") else { return }
-        guard let personFillCheckmark = UIImage(systemName: "person.fill.checkmark") else { return }
-        guard let personFillXmark = UIImage(systemName: "person.fill.xmark") else { return }
-        guard let personFillQuestionmark = UIImage(systemName: "person.fill.questionmark") else { return }
-        guard let personBadgePlus = UIImage(systemName: "person.badge.plus") else { return }
+        guard let noPhoto = UIImage(systemName: "person.fill.questionmark") else { return }
         
-        friendsArray.append(Friend(name: "person",
-                                   avatar: Photo(image: person, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personFill",
-                                   avatar: Photo(image: personFill, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personCircle",
-                                   avatar: Photo(image: personCircle, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personCircleFill",
-                                   avatar: Photo(image: personCircleFill, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personSlash",
-                                   avatar: Photo(image: personSlash, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personSlashFill",
-                                   avatar: Photo(image: personSlashFill, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personFillTurnRight",
-                                   avatar: Photo(image: personFillTurnRight, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personFillCheckmark",
-                                   avatar: Photo(image: personFillCheckmark, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personFillXmark",
-                                   avatar: Photo(image: personFillXmark, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personFillQuestionmark",
-                                   avatar: Photo(image: personFillQuestionmark, likesCount: 0),
-                                   photosArray: []))
-        friendsArray.append(Friend(name: "personBadgePlus",
-                                   avatar: Photo(image: personBadgePlus, likesCount: 0),
-                                   photosArray: []))
+        friendsArray.append(contentsOf: [
+            Friend(name: "Putin",
+                   avatar: Photo(image: UIImage(named: "putin_1") ?? noPhoto, likesCount: 0),
+                   photosArray: [
+                    Photo(image: UIImage(named: "putin_2") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "putin_3") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "putin_4") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "putin_5") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "putin_6") ?? noPhoto, likesCount: 0),
+                   ]),
+            Friend(name: "Jobs",
+                   avatar: Photo(image: UIImage(named: "jobs_1") ?? noPhoto, likesCount: 0),
+                   photosArray: [
+                    Photo(image: UIImage(named: "jobs_2") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_3") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_4") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_5") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_6") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_7") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_8") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_9") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_10") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_11") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_12") ?? noPhoto, likesCount: 0),
+                   ]),
+            Friend(name: "Trump",
+                   avatar: Photo(image: UIImage(named: "trump_1") ?? noPhoto, likesCount: 0),
+                   photosArray: [
+                    Photo(image: UIImage(named: "trump_2") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "trump_3") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "trump_4") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "trump_5") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "trump_6") ?? noPhoto, likesCount: 0),
+                   ])
+        ])
     }
     
     //MARK: private methods
@@ -97,6 +95,10 @@ extension FriendsViewController: UITableViewDelegate {
         
         navigationController?.pushViewController(friendPhotosVC, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
 }
 
 //MARK: UITableViewDataSource
@@ -107,7 +109,8 @@ extension FriendsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsListCellIdentifier", for: indexPath) as! FriendsListTableViewCell
-        cell.set(name: friendsArray[indexPath.row].getName())
+
+        cell.setFriend(friendsArray[indexPath.row])
         cell.setViews()
         
         return cell

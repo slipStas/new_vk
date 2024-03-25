@@ -22,6 +22,10 @@ struct Photo {
         self.likesCount = likesCount
     }
     
+    func getPhoto() -> UIImage {
+        self.image
+    }
+    
     mutating func replace(photo: UIImage) {
         image = photo
     }

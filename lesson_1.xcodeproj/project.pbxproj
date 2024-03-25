@@ -22,6 +22,7 @@
 		8EC775E62BAF1811000DA815 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775E52BAF1811000DA815 /* FriendsListTableViewCell.swift */; };
 		8EC775E82BB04C07000DA815 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775E72BB04C07000DA815 /* Friend.swift */; };
 		8EC775EA2BB04ECE000DA815 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775E92BB04ECE000DA815 /* Photo.swift */; };
+		8EC775EC2BB15FE4000DA815 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC775EB2BB15FE4000DA815 /* FriendView.swift */; };
 		8EE1EF3C2BA316AD00D74A08 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1EF3B2BA316AD00D74A08 /* UIColorExtensions.swift */; };
 		8EE1EF3E2BA3171B00D74A08 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1EF3D2BA3171B00D74A08 /* CGFloatExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		8EC775E52BAF1811000DA815 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		8EC775E72BB04C07000DA815 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		8EC775E92BB04ECE000DA815 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		8EC775EB2BB15FE4000DA815 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		8EE1EF3B2BA316AD00D74A08 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		8EE1EF3D2BA3171B00D74A08 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 			children = (
 				8EC775E42BAF17C3000DA815 /* TableViewCells */,
 				8E0E04602B99D6FD001434D2 /* Storyboards */,
+				8EC775EB2BB15FE4000DA815 /* FriendView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				8E0E045C2B98F74F001434D2 /* LoginInfo.swift in Sources */,
 				8EE1EF3C2BA316AD00D74A08 /* UIColorExtensions.swift in Sources */,
 				8EC775E82BB04C07000DA815 /* Friend.swift in Sources */,
+				8EC775EC2BB15FE4000DA815 /* FriendView.swift in Sources */,
 				8EC775DF2BAD80E4000DA815 /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
