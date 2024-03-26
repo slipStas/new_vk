@@ -69,12 +69,18 @@ class FriendsViewController: UIViewController {
     
     //MARK: private methods
     private func setupTableView() {
-        tableView.frame = view.frame
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         
         tableView.register(FriendsListTableViewCell.self, forCellReuseIdentifier: "FriendsListCellIdentifier")
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         
     }
     
@@ -96,9 +102,6 @@ extension FriendsViewController: UITableViewDelegate {
         navigationController?.pushViewController(friendPhotosVC, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
 }
 
 //MARK: UITableViewDataSource
@@ -110,8 +113,8 @@ extension FriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsListCellIdentifier", for: indexPath) as! FriendsListTableViewCell
 
-        cell.setFriend(friendsArray[indexPath.row])
         cell.setViews()
+        cell.setFriend(friendsArray[indexPath.row])
         
         return cell
     }

@@ -12,6 +12,7 @@ class FriendView: UIView {
     private var photoView: UIImageView
     private var nameLabel: UILabel
     
+    //MARK: init
     init(photoView: UIImageView, nameLabel: UILabel) {
         self.photoView = photoView
         self.nameLabel = nameLabel
@@ -33,6 +34,13 @@ class FriendView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: layoutSubviews
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setCornerRadiusPhoto()
+    }
+    
     func setupViews() {
         addSubview(photoView)
         addSubview(nameLabel)
@@ -42,7 +50,8 @@ class FriendView: UIView {
         
         photoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         photoView.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
-        photoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4).isActive = true
+        photoView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -4).isActive = true
+        photoView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         photoView.widthAnchor.constraint(equalTo: photoView.heightAnchor, multiplier: 1).isActive = true
         
         nameLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 16).isActive = true
@@ -58,6 +67,11 @@ class FriendView: UIView {
     func setupForReuse() {
         self.photoView.image = nil
         self.nameLabel.text = nil
+    }
+    
+    func setCornerRadiusPhoto() {
+        self.photoView.layer.cornerRadius = self.photoView.frame.height / 2
+        self.photoView.layer.masksToBounds = true
     }
     
 }

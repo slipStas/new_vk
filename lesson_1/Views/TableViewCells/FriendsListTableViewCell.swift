@@ -19,10 +19,6 @@ class FriendsListTableViewCell: UITableViewCell {
                                     
         return friendView
     }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -35,14 +31,16 @@ class FriendsListTableViewCell: UITableViewCell {
         
         friendView.translatesAutoresizingMaskIntoConstraints = false
         friendView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        friendView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -50).isActive = true
+        friendView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
         friendView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
         friendView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        
     }
     
     func setFriend(_ friend: Friend) {
         self.friendView.setup(friend: friend)
         self.friendView.setupViews()
+//        self.friendView.setCornerRadiusPhoto()
     }
 
 }
