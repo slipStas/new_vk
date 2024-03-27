@@ -8,8 +8,6 @@
 import UIKit
 
 class FriendsListTableViewCell: UITableViewCell {
-    
-//    private lazy var friendNameLabel = UILabel()
     private lazy var friendView: FriendView = {
         let imageView = UIImageView(image: UIImage(systemName: "person"))
         let nameLabel = UILabel()
@@ -40,7 +38,6 @@ class FriendsListTableViewCell: UITableViewCell {
     func setFriend(_ friend: Friend) {
         self.friendView.setup(friend: friend)
         self.friendView.setupViews()
-//        self.friendView.setCornerRadiusPhoto()
     }
 
 }

@@ -41,6 +41,7 @@ class FriendView: UIView {
         setCornerRadiusPhoto()
     }
     
+    //MARK: methods
     func setupViews() {
         addSubview(photoView)
         addSubview(nameLabel)
@@ -69,7 +70,7 @@ class FriendView: UIView {
         self.nameLabel.text = nil
     }
     
-    func setCornerRadiusPhoto() {
+    private func setCornerRadiusPhoto() {
         self.photoView.layer.cornerRadius = self.photoView.frame.height / 2
         self.photoView.layer.masksToBounds = true
     }

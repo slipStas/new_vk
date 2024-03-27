@@ -32,37 +32,37 @@ class FriendsViewController: UIViewController {
         
         friendsArray.append(contentsOf: [
             Friend(name: "Putin",
-                   avatar: Photo(image: UIImage(named: "putin_1") ?? noPhoto, likesCount: 0),
+                   avatar: Photo(image: UIImage(named: "putin_1") ?? noPhoto, likesCount: 0, isLiked: false),
                    photosArray: [
-                    Photo(image: UIImage(named: "putin_2") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "putin_3") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "putin_4") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "putin_5") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "putin_6") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "putin_2") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "putin_3") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "putin_4") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "putin_5") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "putin_6") ?? noPhoto, likesCount: 0, isLiked: false),
                    ]),
             Friend(name: "Jobs",
-                   avatar: Photo(image: UIImage(named: "jobs_1") ?? noPhoto, likesCount: 0),
+                   avatar: Photo(image: UIImage(named: "jobs_1") ?? noPhoto, likesCount: Int.max, isLiked: false),
                    photosArray: [
-                    Photo(image: UIImage(named: "jobs_2") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_3") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_4") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_5") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_6") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_7") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_8") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_9") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_10") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_11") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "jobs_12") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "jobs_2") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_3") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_4") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_5") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_6") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_7") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_8") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_9") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_10") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_11") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_12") ?? noPhoto, likesCount: 0, isLiked: false),
                    ]),
             Friend(name: "Trump",
-                   avatar: Photo(image: UIImage(named: "trump_1") ?? noPhoto, likesCount: 0),
+                   avatar: Photo(image: UIImage(named: "trump_1") ?? noPhoto, likesCount: 1, isLiked: true),
                    photosArray: [
-                    Photo(image: UIImage(named: "trump_2") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "trump_3") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "trump_4") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "trump_5") ?? noPhoto, likesCount: 0),
-                    Photo(image: UIImage(named: "trump_6") ?? noPhoto, likesCount: 0),
+                    Photo(image: UIImage(named: "trump_2") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "trump_3") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "trump_4") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "trump_5") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "trump_6") ?? noPhoto, likesCount: 0, isLiked: false),
                    ])
         ])
     }
@@ -83,21 +83,12 @@ class FriendsViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         
     }
-    
-    //MARK: @objc methods
-    @objc private func buttonPressed(sender: UIButton) {
-        print("button pressed")
-        let testVC = FriendsPhotosViewController()
-        self.navigationController?.pushViewController(testVC, animated: true)
-    }
-
 }
 
 //MARK: UITableViewDelegate
 extension FriendsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friendPhotosVC = FriendsPhotosViewController()
-        friendPhotosVC.setupFriend(name: friendsArray[indexPath.row].getName())
+        let friendPhotosVC = FriendsPhotosViewController(friend: friendsArray[indexPath.row])
         
         navigationController?.pushViewController(friendPhotosVC, animated: true)
     }
