@@ -60,4 +60,9 @@ class PhotoView: UIView {
         self.likeView = likeView
         self.likeView.updateLike(likeCounts: likeCounts, isLiked: isLiked)
     }
+    
+    func setupForReuse() {
+        self.photoView.image = nil
+        self.likeView.setupForReuse()
+    }
 }

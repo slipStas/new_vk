@@ -95,6 +95,7 @@ class FriendPhotosViewController: UIViewController {
         collectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
         collectionView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1).isActive = true
+        
     }
     
     //MARK: @objc methods
@@ -133,10 +134,16 @@ class FriendPhotosViewController: UIViewController {
     }
 }
 
+//MARK: extensions
 extension FriendPhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width  = ((collectionView.frame.width - lineSpacing * (itemInSection + 1)) / itemInSection)
         return CGSize(width: width, height: width)
+    }
+    
+    override func viewWillLayoutSubviews() {
+       super.viewWillLayoutSubviews()
+       self.collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
