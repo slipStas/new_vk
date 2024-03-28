@@ -82,8 +82,7 @@ class LikesView: UIView {
     
     private func setupColorOfLike() {
         guard let heartView = heartView else {return}
-        guard let likesCountsView = likesCountsView else {return}
-        
+ 
         if isLiked {
             UIView.animate(withDuration: 0.5, delay: 0) {
                 heartView.tintColor = .red

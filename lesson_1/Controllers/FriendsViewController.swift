@@ -11,6 +11,7 @@ class FriendsViewController: UIViewController {
     
     private var friendsArray: [Friend] = []
     private let tableView = UITableView()
+    private let CELLID = "FriendsListCellIdentifier"
 
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class FriendsViewController: UIViewController {
     
     //MARK: methods
     private func fillFriendsArray() {
-        guard let noPhoto = UIImage(systemName: "person.fill.questionmark") else { return }
+        guard let noPhoto = UIImage(named: "noavatar") else { return }
         
         friendsArray.append(contentsOf: [
             Friend(name: "Putin",
@@ -49,11 +50,11 @@ class FriendsViewController: UIViewController {
                     Photo(image: UIImage(named: "jobs_5") ?? noPhoto, likesCount: 0, isLiked: false),
                     Photo(image: UIImage(named: "jobs_6") ?? noPhoto, likesCount: 0, isLiked: false),
                     Photo(image: UIImage(named: "jobs_7") ?? noPhoto, likesCount: 0, isLiked: false),
+                    Photo(image: UIImage(named: "jobs_12") ?? noPhoto, likesCount: 0, isLiked: false),
                     Photo(image: UIImage(named: "jobs_8") ?? noPhoto, likesCount: 0, isLiked: false),
                     Photo(image: UIImage(named: "jobs_9") ?? noPhoto, likesCount: 0, isLiked: false),
                     Photo(image: UIImage(named: "jobs_10") ?? noPhoto, likesCount: 0, isLiked: false),
                     Photo(image: UIImage(named: "jobs_11") ?? noPhoto, likesCount: 0, isLiked: false),
-                    Photo(image: UIImage(named: "jobs_12") ?? noPhoto, likesCount: 0, isLiked: false),
                    ]),
             Friend(name: "Trump",
                    avatar: Photo(image: UIImage(named: "trump_1") ?? noPhoto, likesCount: 1, isLiked: true),
@@ -73,14 +74,18 @@ class FriendsViewController: UIViewController {
         tableView.dataSource = self
         view.addSubview(tableView)
         
-        tableView.register(FriendsListTableViewCell.self, forCellReuseIdentifier: "FriendsListCellIdentifier")
+        self.view.backgroundColor = .systemBackground
+        tableView.backgroundColor = .systemBackground
+        tableView.register(FriendsListTableViewCell.self, forCellReuseIdentifier: CELLID)
+        
+        let safeArea = view.safeAreaLayoutGuide
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: 0).isActive = true
         
     }
 }
@@ -88,7 +93,7 @@ class FriendsViewController: UIViewController {
 //MARK: UITableViewDelegate
 extension FriendsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friendPhotosVC = FriendsPhotosViewController(friend: friendsArray[indexPath.row])
+        let friendPhotosVC = FriendPhotosViewController(friend: friendsArray[indexPath.row])
         
         navigationController?.pushViewController(friendPhotosVC, animated: true)
     }
@@ -102,7 +107,7 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsListCellIdentifier", for: indexPath) as! FriendsListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELLID, for: indexPath) as! FriendsListTableViewCell
 
         cell.setViews()
         cell.setFriend(friendsArray[indexPath.row])
