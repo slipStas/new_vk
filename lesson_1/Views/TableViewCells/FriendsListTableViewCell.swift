@@ -8,23 +8,36 @@
 import UIKit
 
 class FriendsListTableViewCell: UITableViewCell {
+    private lazy var friendView: FriendView = {
+        let imageView = UIImageView(image: UIImage(systemName: "person"))
+        let nameLabel = UILabel()
+        nameLabel.text = "no name"
+        let friendView = FriendView(photoView: imageView,
+                                    nameLabel: nameLabel)
+                                    
+        return friendView
+    }()
     
-    lazy var friendNameLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 8, y: 8, width: 150, height: 15))
-        label.textAlignment = .left
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        return label
-    } ()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        friendView.setupForReuse()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        self.addSubview(friendNameLabel)
+    
+    func setViews() {
+        self.addSubview(friendView)
+        
+        friendView.translatesAutoresizingMaskIntoConstraints = false
+        friendView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        friendView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        friendView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        friendView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        
+    }
+    
+    func setFriend(_ friend: Friend) {
+        self.friendView.setup(friend: friend)
+        self.friendView.setupViews()
     }
 
 }
