@@ -34,9 +34,28 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        
+//        let blueThead = BlueThread()
+//        blueThead.qualityOfService = .userInitiated
+//        let blackThread = BlackThread()
+//        blackThread.qualityOfService = .userInteractive
+//        let myTimer = MyTimer()
+//        myTimer.qualityOfService = .userInteractive
+//        
+//        myTimer.start()
+//        blueThead.start()
+//        blackThread.start()
+        
+        for i in 0..<10 {
+            let thread = BlackThread()
+            thread.name = "name_\(i)"
+            thread.start()
+        }
+        
+        
         self.loginInfo = LoginInfo()
         self.setupStartViews()
-        
+        print("end viewDidLoad")
     }
     //MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
